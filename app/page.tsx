@@ -1,65 +1,65 @@
-import Image from "next/image";
-
+// =========================
+// 📁 app/page.js
+// =========================
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-slate-950 text-white font-sans">
+      <header className="border-b border-slate-800">
+        <nav className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Gatha Labs</h1>
+          <div className="flex gap-6 text-sm text-slate-300">
+            <a href="#courses">Courses</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section className="max-w-6xl mx-auto px-6 py-24 text-center">
+          <p className="text-blue-400 mb-4">Learn → Build → Earn</p>
+          <h2 className="text-5xl font-bold">
+            Learn Tech Skills That Actually Get You Hired
+          </h2>
+          <p className="mt-6 text-slate-400">
+            Practical learning for real-world skills.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="mt-10 flex gap-4 justify-center">
+            <button className="bg-blue-600 px-6 py-3 rounded-xl">
+              Start Learning
+            </button>
+            <button className="border border-slate-700 px-6 py-3 rounded-xl">
+              Explore Courses
+            </button>
+          </div>
+        </section>
+
+        <section id="courses" className="max-w-6xl mx-auto px-6 py-16">
+          <h3 className="text-3xl font-bold mb-8">Featured Course</h3>
+          <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+            <h4 className="text-2xl">Computer Basics for Beginners</h4>
+            <p className="mt-4 text-slate-400">
+              Learn essential computer skills from scratch.
+            </p>
+            <button className="mt-6 bg-blue-600 px-5 py-2 rounded-lg">
+              View Course
+            </button>
+          </div>
+        </section>
+
+        <section id="about" className="max-w-6xl mx-auto px-6 py-16">
+          <h3 className="text-3xl font-bold">About</h3>
+          <p className="text-slate-400 mt-4">
+            Gatha Labs helps students go from learning to earning.
+          </p>
+        </section>
       </main>
+
+      <footer id="contact" className="border-t border-slate-800 mt-20">
+        <div className="max-w-6xl mx-auto px-6 py-8 text-slate-400">
+          Contact: gathalabs.in@gmail.com
+        </div>
+      </footer>
     </div>
   );
 }
