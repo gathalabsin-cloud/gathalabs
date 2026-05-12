@@ -10,6 +10,15 @@ type Props = {
   }>;
 };
 
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+
+  return {
+    title: `${slug.replace(/-/g, " ")} | Gatha Labs`,
+    description: "Gatha Labs Blog",
+  };
+}
+
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
 
@@ -21,8 +30,10 @@ export default async function BlogPost({ params }: Props) {
 
   if (!fs.existsSync(filePath)) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        Blog post not found.
+      <div className="min-h-screen bg-[#f5f7fb] flex items-center justify-center">
+        <h1 className="text-3xl font-bold text-black">
+          Blog post not found.
+        </h1>
       </div>
     );
   }
@@ -38,23 +49,51 @@ export default async function BlogPost({ params }: Props) {
   const contentHtml = processedContent.toString();
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-20">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold mb-6">
-          {data.title}
-        </h1>
+    <main className="min-h-screen bg-[#f5f7fb] py-14 px-4">
+      <article className="max-w-5xl mx-auto bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
 
-        <p className="text-gray-400 mb-10">
-          {data.description}
-        </p>
+        {/* Top Section */}
+        <div className="px-8 md:px-14 pt-12 pb-8">
 
-        <article
-          className="prose prose-invert max-w-none"
-          dangerouslySetInnerHTML={{
-            __html: contentHtml,
-          }}
-        />
-      </div>
-    </div>
+          {/* Tags */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            <span className="px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-medium">
+              Technology
+            </span>
+
+            <span className="px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-medium">
+              Computer Basics
+            </span>
+
+            <span className="px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-medium">
+              Education
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-6xl font-black leading-tight text-[#0f172a]">
+            {data.title}
+          </h1>
+
+          {/* Description */}
+          <p className="text-xl text-slate-500 leading-8 mt-8 max-w-4xl">
+            {data.description}
+          </p>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200"></div>
+
+        {/* Content */}
+        <div className="px-8 md:px-14 pb-16">
+          <div
+            className="blog-content"
+            dangerouslySetInnerHTML={{
+              __html: contentHtml,
+            }}
+          />
+        </div>
+      </article>
+    </main>
   );
 }

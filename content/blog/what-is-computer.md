@@ -1,24 +1,18 @@
 ---
 title: "What is Computer?"
-date: "2026-05-10"
-description: "Learn the basics of computers in simple language."
+description: "Learn the basics of computers and how they work."
 ---
 
-# What is Computer?
+# Introduction
 
-A computer is an electronic machine that processes data and performs tasks according to instructions.
+A computer is an electronic machine that processes data.
 
-## Main Functions of Computer
+## Types of Computers
 
-- Input
-- Processing
-- Output
-- Storage
+- Desktop
+- Laptop
+- Server
 
-## Why Computers Are Important
+## Conclusion
 
-Computers are used in:
-- education
-- business
-- communication
-- entertainment
+Computers are essential in modern life.
