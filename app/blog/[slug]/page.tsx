@@ -13,9 +13,33 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
+  const filePath = path.join(
+    process.cwd(),
+    "content/blog",
+    `${slug}.md`
+  );
+
+  const fileContent = fs.readFileSync(filePath, "utf8");
+
+  const { data } = matter(fileContent);
+
   return {
-    title: `${slug.replace(/-/g, " ")} | Gatha Labs`,
-    description: "Gatha Labs Blog",
+    title: data.title,
+    description: data.description,
+
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      url: `https://gathalabs.in/blog/${slug}`,
+      siteName: "Gatha Labs",
+      type: "article",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: data.title,
+      description: data.description,
+    },
   };
 }
 
