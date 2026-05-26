@@ -10,29 +10,29 @@ export default function Home() {
       {/* Navbar */}
       <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/40">
         <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-wide hover:text-blue-400 transition"
-          >
-            Gatha Labs
-          </Link>
 
-          <div className="hidden md:flex gap-8 text-sm text-gray-300">
-            <Link href="/blog" className="hover:text-white transition">
+          <h1 className="text-2xl font-bold tracking-wide whitespace-nowrap">
+            Gatha Labs
+          </h1>
+
+          <div className="flex items-center gap-5 text-sm text-gray-300 overflow-x-auto">
+
+            <Link href="/blog" className="hover:text-white transition whitespace-nowrap">
               Blog
             </Link>
 
-            <Link href="/courses" className="hover:text-white transition">
+            <Link href="/courses" className="hover:text-white transition whitespace-nowrap">
               Courses
             </Link>
 
-            <Link href="/about" className="hover:text-white transition">
+            <Link href="/about" className="hover:text-white transition whitespace-nowrap">
               About
             </Link>
 
-            <Link href="/contact" className="hover:text-white transition">
+            <Link href="/contact" className="hover:text-white transition whitespace-nowrap">
               Contact
             </Link>
+
           </div>
         </nav>
       </header>
