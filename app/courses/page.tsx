@@ -7,27 +7,75 @@ export const metadata = {
 export default function CoursesPage() {
   const courses = [
     {
-      title: "Computer Basics for Beginners",
+      title: "Ultimate C++ Programming Course",
+      level: "Beginner → Expert",
+      duration: "30+ Hours",
+      category: "Programming",
+      icon: "💻",
       description:
-        "Learn essential computer skills including hardware, software, internet, files, and digital safety.",
-      level: "Beginner",
-      duration: "4 Hours",
+        "Master modern C++ from scratch with OOP, STL, templates, file handling, and real-world projects.",
+      button: "Enroll on Udemy",
+      url: "https://www.udemy.com/course/ultimate-cpp-programming-course-from-beginner-to-expert/?couponCode=MT260714G2",
     },
 
     {
-      title: "Introduction to Internet",
-      description:
-        "Understand how the internet works, browsers, websites, search engines, and online communication.",
+      title: "C Programming For Beginners",
       level: "Beginner",
-      duration: "3 Hours",
+      duration: "20+ Hours",
+      category: "Programming",
+      icon: "🖥️",
+      description:
+        "Learn C programming from scratch including variables, loops, arrays, pointers, functions, structures, and file handling.",
+      button: "Enroll on Udemy",
+      url: "https://www.udemy.com/course/c-programming-for-beginners-master-in-c-language/?couponCode=MT260714G2",
     },
 
     {
-      title: "Web Development Basics",
+      title: "Data Structures & Algorithms Using C++",
+      level: "Intermediate",
+      duration: "25+ Hours",
+      category: "DSA",
+      icon: "📊",
       description:
-        "Start your journey into HTML, CSS, JavaScript, and modern website development.",
-      level: "Beginner",
-      duration: "6 Hours",
+        "Master arrays, linked lists, stacks, queues, trees, graphs, recursion, sorting, searching, and interview-focused algorithms.",
+      button: "Enroll on Udemy",
+      url: "https://www.udemy.com/course/data-structures-and-algorithms-using-c-programming/?couponCode=MT260714G2",
+    },
+
+    {
+      title: "SQL Bootcamp 2026",
+      level: "Beginner → Advanced",
+      duration: "18+ Hours",
+      category: "Database",
+      icon: "🗄️",
+      description:
+        "Learn SQL from scratch including SELECT, JOINs, GROUP BY, subqueries, indexes, constraints, and database design.",
+      button: "Enroll on Udemy",
+      url: "https://www.udemy.com/course/the-complete-sql-bootcamp-go-from-zero-to-hero/?couponCode=MT260714G2",
+    },
+
+    {
+      title: "ChatGPT Prompt Engineering Masterclass",
+      level: "All Levels",
+      duration: "10+ Hours",
+      category: "Artificial Intelligence",
+      icon: "🤖",
+      description:
+        "Learn prompt engineering techniques for productivity, coding, business workflows, content creation, and AI automation.",
+      button: "Enroll on Udemy",
+      url: "https://www.udemy.com/course/chatgpt-prompt-engineering-masterclass-from-beginner-to-pro/?couponCode=MT260714G2",
+    },
+
+    {
+      title: "SOLID Principles & Software Design",
+      level: "Intermediate",
+      duration: "8+ Hours",
+      category: "Software Engineering",
+      icon: "🏗️",
+      description:
+        "Understand SOLID principles, clean code, software architecture, object-oriented design, and scalable application development.",
+      button: "Enroll on Udemy",
+      url: "https://www.udemy.com/course/solid-principles-introducing-software-architecture-design/?couponCode=MT260714G2",
     },
   ];
 
@@ -56,29 +104,47 @@ export default function CoursesPage() {
           {courses.map((course, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl border border-gray-200 p-8 shadow-sm hover:shadow-lg transition duration-300"
+              className="group bg-white rounded-3xl border border-gray-200 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
             >
-              <div className="flex items-center justify-between mb-6">
-                <span className="px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-medium">
-                  {course.level}
-                </span>
+              {/* Top */}
+              <div className="flex items-start justify-between mb-6">
+                <div className="text-5xl">{course.icon}</div>
 
-                <span className="text-slate-400 text-sm">
-                  {course.duration}
+                <span className="px-3 py-1 rounded-full bg-indigo-100 text-indigo-600 text-xs font-semibold">
+                  {course.category}
                 </span>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 leading-snug">
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-slate-900 leading-snug mb-4">
                 {course.title}
               </h2>
 
-              <p className="text-slate-500 mt-5 leading-7">
+              {/* Level + Duration */}
+              <div className="flex items-center justify-between text-sm mb-6">
+                <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">
+                  {course.level}
+                </span>
+
+                <span className="text-slate-500">
+                  ⏱ {course.duration}
+                </span>
+              </div>
+
+              {/* Description */}
+              <p className="text-slate-600 leading-7 flex-grow">
                 {course.description}
               </p>
 
-              <button className="mt-8 bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-2xl font-medium transition">
-                Start Learning
-              </button>
+              {/* Button */}
+              <a
+                href={course.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                {course.button} →
+              </a>
             </div>
           ))}
         </div>
